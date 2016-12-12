@@ -22,6 +22,26 @@ This was done in collaboration with Constantin Blach (s4329872).
 
 \section{} %1
 
+\begin{enumerate}
+	\item $T = \emptyset$
+	\item Find the next house $h$ not covered by any tower. \label{sec1:find_house}
+	\item \begin{itemize}
+		\item If $h$ is found place a new tower $t = h.position + 4$. $T = T \cup \{t\}$
+		\item else return $T$
+	\end{itemize}
+	\item Go to step \ref{sec1:find_house}
+\end{enumerate}
+
+Where $h.position$ indicates the position of house $h$ in miles from the start of the country road.
+
+After using this algorithm, $T$ contains the positions where we need to place towers to cover all houses along the road.
+
+\paragraph{Correctness}
+For every new house $h$ we find at step \ref{sec1:find_house} we must place a cell tower that covers this house because we need to cover all houses. We place it the farthest away from this house as to still cover $h$. This ensures that we cover not only $h$ but as many other houses as possible because we place is as far along the road as possible at $h.position + 4$ while still covering $h$.
+
+\paragraph{Time Complexity}
+We need to visit every house once and perform $O(1)$ work there. The time complexity is $O(|H|)$ where $H$ is s list of houses ordered by their distance from the start of the road.
+
 \section{} %2
 
 \section{} %3
