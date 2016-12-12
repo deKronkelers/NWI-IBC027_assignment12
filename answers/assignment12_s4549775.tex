@@ -28,4 +28,10 @@
 
 \section{} %5
 
+The first step is finding a minimum spanning tree $S$ in $G$, using Prim's algorithm.
+
+Assume there is another minimum spanning tree. This means we can replace some edges by other edges that do not break the spanning tree and still have the same weight. For every edge $e \in S$ we already found however we cannot replace it with another edge $e' \not\in S$ because $e'$ cannot have the same weight as $e$ because all weights are unique and it cannot weigh less because then we would have picked it over $e$ in the first step with Prim's algorithm where we pick edges in order of their weight.
+
+It follows that no edge in $S$ can be replaced while maintaining the minimum weight so $S$ must be the only possible minimum spanning tree.
+
 \end{document}
