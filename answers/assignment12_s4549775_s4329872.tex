@@ -44,6 +44,43 @@ We need to visit every house once and perform $O(1)$ work there. The time comple
 
 \section{} %2
 
+The queue consists of tuples of edges and their weight.
+
+Initial state:
+
+\begin{tikzpicture}[
+	baseline=(A.north)
+	,n/.style={draw, circle, minimum width=2em}
+	,recently/.style={blue}
+	,added/.style={line width=.2em}
+]
+	\node[n] (E) {e};
+	\node[n, above left=of E] (A) {a};
+	\node[n, above right=of E] (B) {b};
+	\node[n, below left=of E] (C) {c};
+	\node[n, below right=of E] (D) {d};
+
+	\path (A) edge node [auto] {5} (B);
+	\draw (B) edge node [auto] {6} (D);
+	\draw (C) edge node [auto] {7} (A);
+	\draw (D) edge node [auto] {4} (C);
+	\draw (E) edge node [auto] {2} (A);
+	\draw (E) edge node [auto] {3} (B);
+	\draw (E) edge node [auto] {4} (C);
+	\draw (E) edge node [auto] {5} (D);
+\end{tikzpicture}
+
+Queue: \begin{enumerate}
+	\item $(\{e, a\}, 2)$
+	\item $(\{e, b\}, 3)$
+	\item $(\{e, c\}, 4)$
+	\item $(\{d, c\}, 4)$
+	\item $(\{e, d\}, 5)$
+	\item $(\{a, b\}, 5)$
+	\item $(\{b, d\}, 6)$
+	\item $(\{a, c\}, 7)$
+\end{enumerate}
+
 \section{} %3
 
 \section{} %4
