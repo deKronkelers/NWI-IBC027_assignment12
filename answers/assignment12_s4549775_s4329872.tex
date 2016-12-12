@@ -241,6 +241,16 @@ Because we want to use as few rooms as possible and have no further restrictions
 
 \section{} %4
 
+Ordering the jobs by their $f_i$ in decreasing order produces a schedule with minimum completion time.
+
+\paragraph{Correctness}
+All jobs need some time $d_i$ on the supercomputer so for this part the order does not matter, we always need the same time: $\sum_{1 \leq i \leq n} d_i$.
+
+What matters is the $f_i$ of each job. Because we have enough PCs to run all jobs in parallel we get the shortest finishing time by starting the jobs with the highest $f_i$ first. This is accomplished by scheduling them earlier which means sorting them by decreasing $f_i$.
+
+\paragraph{Time Complexity}
+Ordering a list can be done in $O(n \log n)$. This is the only thing we need to do so this is the algorithms running time.
+
 \section{} %5
 
 The first step is finding a minimum spanning tree $S$ in $G$, using Prim's algorithm.
